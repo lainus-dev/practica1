@@ -1,0 +1,170 @@
+/* =========================================================
+   ESTILOS BASE Y LAYOUT
+   ---------------------------------------------------------
+   Pega TODO este archivo como style.css y enlázalo en tu HTML:
+   <link rel="stylesheet" href="style.css">
+   ========================================================= */
+
+/* Reset básico para tener un layout consistente */
+* { box-sizing: border-box; }
+
+/* Eliminamos márgenes por defecto y forzamos alto total de la página */
+html, body { height: 100%; margin: 0; }
+
+/* Fondo azul y centrado vertical/horizontal del contenido con CSS Grid */
+body{
+  display: grid;              /* Crea un contenedor grid */
+  place-items: center;        /* Centra el hijo (el <form>) en ambos ejes */
+  background: #0d47a1;        /* Azul profundo para todo el fondo */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #111827;             /* Color de texto por defecto (oscuro sobre tarjeta clara) */
+}
+
+/* =========================================================
+   TARJETA / CONTENEDOR DEL FORMULARIO
+   ---------------------------------------------------------
+   - Limita el ancho
+   - Da aspecto de "tarjeta" sobre el fondo azul
+   ========================================================= */
+form{
+  width: min(420px, 92vw);    /* Máx 420px; se adapta en móviles */
+  background: #ffffff;        /* Tarjeta blanca para buen contraste */
+  padding: 24px;              /* Espacio interno cómodo */
+  border-radius: 16px;        /* Esquinas redondeadas elegantes */
+  box-shadow: 0 12px 32px rgba(0,0,0,.20); /* Sombra suave para flotado */
+}
+
+/* Opcional: si usas títulos dentro del form, mejora su separación */
+form h1, form h2 {
+  margin: 0 0 12px;
+}
+
+/* Las etiquetas encima de cada input ayudan a la accesibilidad */
+label{
+  display: block;
+  margin: 10px 0 6px;
+  font-size: .95rem;
+  color: #111827;
+}
+
+/* =========================================================
+   INPUTS DE TEXTO - ESTILO ELEGANTE
+   ---------------------------------------------------------
+   - Apariencia limpia
+   - Degradado sutil
+   - Sombras para relieve
+   - Estados hover / focus con transición
+   ========================================================= */
+input[type="text"]{
+  -webkit-appearance: none;     /* Quita estilos nativos en Safari/iOS */
+  appearance: none;             /* Apariencia plana y consistente */
+  width: 100%;                  /* Ocupa todo el ancho disponible */
+  padding: 14px 16px;           /* Altura/cómodo para el dedo */
+  margin: 10px 0;               /* Separación vertical entre inputs */
+  border: 1px solid #d1d5db;    /* Borde gris suave */
+  border-radius: 14px;          /* Esquinas redondeadas */
+  background: linear-gradient(#fff, #f9fafb); /* Degradado sutil */
+  box-shadow:
+    inset 0 1px 2px rgba(0,0,0,.04),  /* Sombra interna ligera */
+    0 1px 2px rgba(0,0,0,.04);        /* Relieve externo muy suave */
+  font-size: 16px;
+  line-height: 1.2;
+  outline: none;                 /* Quitamos el outline nativo */
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease,
+    transform .06s ease;         /* Transiciones suaves */
+  caret-color: #2563eb;          /* Color del cursor (azul) */
+}
+
+/* Placeholder más sutil y elegante */
+input[type="text"]::placeholder{
+  color: #9ca3af;
+  letter-spacing: .2px;
+}
+
+/* Ligero realce al pasar el mouse */
+input[type="text"]:hover{
+  border-color: #9ca3af;
+}
+
+/* Estado de enfoque: anillo de foco y micro-elevación */
+input[type="text"]:focus{
+  border-color: #2563eb;        /* Borde azul al foco */
+  box-shadow:
+    0 0 0 4px rgba(37,99,235,.15), /* Anillo accesible alrededor */
+    inset 0 1px 2px rgba(0,0,0,.04);
+  transform: translateY(-1px);  /* Sutil “levantar” el input */
+}
+
+/* Estado deshabilitado por si lo necesitas */
+input[type="text"]:disabled{
+  background: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   BOTÓN CENTRADO Y ELEGANTE
+   ---------------------------------------------------------
+   - Centrado con margin auto
+   - Peso visual con sombra al hover
+   - Animación sutil de elevación
+   ========================================================= */
+button{
+  display: block;               /* Permite centrar con margin auto */
+  margin: 14px auto 0;          /* Centrado horizontal y separación del input */
+  padding: 12px 18px;           /* Área táctil cómoda */
+  border: 0;                    /* Sin borde nativo */
+  border-radius: 12px;          /* Esquinas redondeadas */
+  background: #111827;          /* Gris muy oscuro elegante */
+  color: #ffffff;               /* Texto blanco */
+  font-weight: 600;             /* Realce tipográfico */
+  letter-spacing: .2px;         /* Espaciado fino en el texto */
+  cursor: pointer;              /* Cursor de mano */
+  transition:
+    transform .08s ease,
+    box-shadow .2s ease,
+    opacity .2s ease;           /* Transiciones suaves */
+}
+
+/* Sombra y micro-elevación al pasar el mouse */
+button:hover{
+  box-shadow: 0 10px 18px rgba(0,0,0,.18);
+  transform: translateY(-1px);
+}
+
+/* “Click”: vuelve a su lugar */
+button:active{
+  transform: translateY(0);
+}
+
+/* Botón deshabilitado opcional */
+button:disabled{
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   ACCESIBILIDAD Y DETALLES
+   ---------------------------------------------------------
+   - Mejora el foco para usuarios que navegan con teclado
+   ========================================================= */
+button:focus-visible,
+input[type="text"]:focus-visible{
+  outline: 2px solid transparent;        /* Evita doble contorno */
+  box-shadow:
+    0 0 0 4px rgba(37,99,235,.22),
+    inset 0 1px 2px rgba(0,0,0,.04);
+}
+
+/* =========================================================
+   PEQUEÑOS AJUSTES RESPONSIVE (opcional)
+   ---------------------------------------------------------
+   - Ajusta padding en pantallas muy pequeñas
+   ========================================================= */
+@media (max-width: 360px){
+  form{ padding: 18px; }
+  input[type="text"]{ padding: 12px 14px; }
+  button{ padding: 11px 16px; }
+}
