@@ -2,5 +2,6 @@
 - Primeros cambios
 - Continuamos
 - Tercera
--cuarta
+- cuarta
 - quinta
+- sexta
