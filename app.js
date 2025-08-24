@@ -4,15 +4,19 @@ idElemento.innerHTML = texto;
 return;
 }
 
-function leerValores(){
+function leeNumeros(){
     let num1 = parseInt(document.getElementById('primerValor').value);
     let num2 = parseInt(document.getElementById('segundoValor').value);
-    document.getElementById('resultado').value = sumar(num1, num2);
+    return [num1, num2];
 }
 
-function leerValores2(){
-    let num1 = parseInt(document.getElementById('primerValor').value);
-    let num2 = parseInt(document.getElementById('segundoValor').value);
+function sumarO(){
+    let [num1, num2] = leeNumeros();
+     document.getElementById('resultado').value = sumar(num1, num2);
+}
+
+function multiplicarO(){
+    let [num1, num2] = leeNumeros();
      document.getElementById('resultado').value = multiplicar(num1, num2);
 }
 
