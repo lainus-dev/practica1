@@ -1,25 +1,35 @@
-let dato1;
-let dato2;
-let resultado;
-
 function asignarTextoElemento(idE, texto){
-let idElemento = document.getElementsByName(idE);
+let idElemento = document.getElementById(idE);
 idElemento.innerHTML = texto;
-for (const el of idElemento){
-    el.textContent = texto;
-}
+return;
 }
 
-function operacionUsuario(){
-    let primerNumeroDeUsuario = document.getElementById('primerValor').value;
-    let segundoNumeroDeUsuario = document.getElementById('segundoValor').value;
-    alert(primerNumeroDeUsuario + segundoNumeroDeUsuario);
-    return;
+function leerValores(){
+    let num1 = parseInt(document.getElementById('primerValor').value);
+    let num2 = parseInt(document.getElementById('segundoValor').value);
+    document.getElementById('resultado').value = sumar(num1, num2);
 }
 
-asignarTextoElemento('sub','PRACTICA 1');
-//asignarTextoElemento('subTitulo1', 'Primer dato');
-//asignarTextoElemento('subTitulo2', 'Segundo dato');
-//asignarTextoElemento('subTitulo3', 'Resultado');
+function leerValores2(){
+    let num1 = parseInt(document.getElementById('primerValor').value);
+    let num2 = parseInt(document.getElementById('segundoValor').value);
+     document.getElementById('resultado').value = multiplicar(num1, num2);
+}
+
+function sumar(a, b){
+    let res = a + b;
+    return res;
+}
+
+function multiplicar(a, b){
+    let res = a * b;
+    return res;
+}
+
+
+asignarTextoElemento('titulo','PRACTICA 1');
+asignarTextoElemento('subTitulo1', 'Primer dato');
+asignarTextoElemento('subTitulo2', 'Segundo dato');
+asignarTextoElemento('subTitulo3', 'Resultado');
 
 
