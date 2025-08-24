@@ -2,18 +2,24 @@ let dato1;
 let dato2;
 let resultado;
 
-function asignarTextoElemento(elemento, texto){
-let elementoHTML = document.querySelector(elemento);
-elementoHTML.innerHTML = texto;
-return;
+function asignarTextoElemento(idE, texto){
+let idElemento = document.getElementsByName(idE);
+idElemento.innerHTML = texto;
+for (const el of idElemento){
+    el.textContent = texto;
+}
 }
 
 function operacionUsuario(){
-    let numeroDeUsuario = document.getElementById('primerValor').value;
+    let primerNumeroDeUsuario = document.getElementById('primerValor').value;
+    let segundoNumeroDeUsuario = document.getElementById('segundoValor').value;
+    alert(primerNumeroDeUsuario + segundoNumeroDeUsuario);
     return;
 }
 
-asignarTextoElemento('h1','PRACTICA 1');
-asignarTextoElemento('h2', 'Primer dato');
+asignarTextoElemento('sub','PRACTICA 1');
+//asignarTextoElemento('subTitulo1', 'Primer dato');
+//asignarTextoElemento('subTitulo2', 'Segundo dato');
+//asignarTextoElemento('subTitulo3', 'Resultado');
 
 
